@@ -1,0 +1,24 @@
+{
+  "name": "eureka/component-container",
+  "description": "PHP container library (based on draft of PSR container).",
+  "type": "library",
+  "license": "MIT",
+
+  "authors": [
+    {
+      "name": "Romain Cottard",
+      "role": "Developer"
+    }
+
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "Eureka\\Component\\Container\\": "./src/Container/"
+    }
+  },
+
+  "require": {
+    "eureka/component-psr": "^1.0.0"
+  }
+}

@@ -57,7 +57,7 @@ class Container implements ContainerInterface
     public function get($id)
     {
         if (!$this->has($id)) {
-            throw new NotFoundException('No instance for given key! (key: ' . $key . ')');
+            throw new NotFoundException('No instance for given key! (key: ' . $id . ')');
         }
 
         return $this->instances[$id];
@@ -103,6 +103,21 @@ class Container implements ContainerInterface
     {
         if ($this->has($id)) {
             unset($this->instances[$id]);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Initialize container from data array.
+     *
+     * @param  array $array
+     * @return self
+     */
+    public function initFromArray(array $array)
+    {
+        foreach ($array as $name => $conf) {
+            $this->attach($name, new $conf['class']());
         }
 
         return $this;
