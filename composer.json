@@ -19,6 +19,6 @@
   },
 
   "require": {
-    "eureka/component-psr": "^1.0.0"
+    "eureka/component-psr": "^1.0"
   }
 }
