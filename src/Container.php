@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Copyright (c) 2010-2017 Romain Cottard
+/*
+ * Copyright (c) Romain Cottard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,7 +10,7 @@
 namespace Eureka\Component\Container;
 
 use Eureka\Component\Container\Exception\NotFoundException;
-use Eureka\Component\Psr\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Container class.
@@ -19,23 +19,11 @@ use Eureka\Component\Psr\Container\ContainerInterface;
  */
 class Container implements ContainerInterface
 {
-    /**
-     * @var static $instance
-     */
+    /** @var static $instance */
     private static $instance = null;
 
-    /**
-     * @var \SplObjectStorage List of instances saved
-     */
-    private $instances = array();
-
-    /**
-     * Container constructor.
-     */
-    private function __construct()
-    {
-        $this->instances = array();
-    }
+    /** @var \SplObjectStorage List of instances saved */
+    private $instances = [];
 
     /**
      * Singleton getter.
@@ -49,6 +37,14 @@ class Container implements ContainerInterface
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Container constructor.
+     */
+    private function __construct()
+    {
+        $this->instances = [];
     }
 
     /**
@@ -77,7 +73,6 @@ class Container implements ContainerInterface
      *
      * @param  string $id Key name to retrieve the instance
      * @param  object $instance Instance to attach
-     * @param  string $type Type of object
      * @return self
      * @throws \LogicException
      */
@@ -96,7 +91,7 @@ class Container implements ContainerInterface
      * Detach Instance from container.
      * Implicit destruct the instance.
      *
-     * @param  string $key Key name to retrieve the instance
+     * @param  string $id Key name to retrieve the instance
      * @return self
      */
     public function detach($id)

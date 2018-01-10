@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Copyright (c) 2010-2017 Romain Cottard
+/*
+ * Copyright (c) Romain Cottard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -9,7 +9,7 @@
 
 namespace Eureka\Component\Container\Exception;
 
-use Eureka\Component\Psr\Container\Exception\NotFoundExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Not Found Exception class
