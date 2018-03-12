@@ -9,13 +9,11 @@
 
 namespace Eureka\Component\Container\Exception;
 
-use Psr\Container\NotFoundExceptionInterface;
-
 /**
- * Not Found Exception class
+ * Class ContainerException
  *
  * @author Romain Cottard
  */
-class NotFoundException extends ContainerException implements NotFoundExceptionInterface
+class ContainerException extends \Exception
 {
 }
