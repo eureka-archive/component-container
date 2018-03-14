@@ -34,12 +34,18 @@ class ServicesContainer extends Container
      */
     public function get($id)
     {
-        $serviceMethod = parent::get($id);
+        $content = parent::get($id);
 
-        $className  = "\\{$this->servicesClassName}";
-        $methodName = "get${serviceMethod}";
+        //~ Services are prefixed by "service::" string.
+        if (is_string($content) && substr($content, 0, 9) === 'service::') {
+            $serviceName = substr($content, 9);
+            $className   = "\\{$this->servicesClassName}";
+            $methodName  = "get${serviceName}";
 
-        return $className::$methodName();
+            return $className::$methodName();
+        }
+
+        return $content;
     }
 
     /**
