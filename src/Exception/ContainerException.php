@@ -9,11 +9,13 @@
 
 namespace Eureka\Component\Container\Exception;
 
+use Psr\Container\ContainerExceptionInterface;
+
 /**
  * Class ContainerException
  *
  * @author Romain Cottard
  */
-class ContainerException extends \Exception
+class ContainerException extends \Exception implements ContainerExceptionInterface
 {
 }
