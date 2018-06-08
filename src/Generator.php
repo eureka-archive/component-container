@@ -238,6 +238,8 @@ class ${className}
 
         if (is_string($param) && substr($param, 0, 6) !== 'self::') {
             $return = var_export($param, true);
+        } elseif (!is_string($param) && !is_array($param)) {
+            $return = var_export($param, true);
         } elseif (is_array($param)) {
             $return = '[';
             $counter = 0;
